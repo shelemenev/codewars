@@ -8,34 +8,22 @@ let employees = [ {firstName: "Dipper", lastName: "Pines", role: "Boss"}, ......
 There are no duplicate names in the array and the name passed in will be a single string with a space between the first and last name i.e. Jane Doe or just a name.*/
 
 function findEmployeesRole(name) {
-  const nameParts = name.split(' ')
-
-  const firstName = nameParts[0]
-  let lastName
-   if (nameParts.length > 1) {
-      lastName = nameParts[1]
-   } else {
-      lastName = ''
-   }
 
   const employee = employees.find(emp =>
-    emp.firstName === firstName && emp.lastName === lastName
+    `${emp.firstName} ${emp.lastName}` === name
   )
 
-  if (employee) {
-     return employee.role
-   } else {
-     return "Does not work here!"
-   }
+  return employee ? employee.role : "Does not work here!"
 }
 
 let employees = [
   {firstName: "Dipper", lastName: "Pines", role: "Boss"},
   {firstName: "Mabel", lastName: "Pines", role: "Assistant"},
   {firstName: "Stan", lastName: "Trigger", role: "Manager"}
-];
+]
 
 console.log(findEmployeesRole("Dipper Pines"))      
 console.log(findEmployeesRole("Mabel Pines"))             
 console.log(findEmployeesRole("Stan Trigger"))             
 console.log(findEmployeesRole("Wendy Blerg"))   
+

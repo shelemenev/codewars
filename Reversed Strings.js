@@ -5,12 +5,15 @@
 
 
 function solution(str) {
-  return str.split('').reverse().join('')
+  let result = '' 
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i]
+  }
+  return result
 }
 const str = 'world'
 const str1 = 'word'
 
 console.log(solution(str) + ' ' + solution(str1))
-
 
 
