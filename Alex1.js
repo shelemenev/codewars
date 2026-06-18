@@ -1,0 +1,8 @@
+const obj = {
+  name: 'Alex',
+  getName: function() {
+    return this.name
+  }
+}
+const fn = obj.getName.bind(obj)
+console.log(fn())
