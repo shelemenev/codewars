@@ -16,15 +16,16 @@ task will always be an arbitrary function that might run for any duration betwee
 
 function antiOptimizeAsync(task) {
  
-  const delayPromise = new Promise(resolve => {
-    const delay = 11000
-    setTimeout(() => resolve(), delay)
+  const delayPromise = new Promise((resolve, reject) => {
+    const delay = 2000
+    setTimeout(() => resolve('Привет'), delay)
   })
+  console.log(delayPromise)
 
   const taskPromise = Promise.resolve(task())
 
   return Promise.all([taskPromise, delayPromise])
-    .then((result) => result[0])
+    //.then((result) => result[0])
 }
 
 const result = await antiOptimizeAsync(() => 'Task result')

@@ -4,5 +4,4 @@ const obj = {
     return this.name
   }
 }
-const fn = obj.getName.bind(obj)
-console.log(fn())
+const fn = obj.getName.call(obj)
